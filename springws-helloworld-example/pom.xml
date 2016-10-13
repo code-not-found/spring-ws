@@ -9,8 +9,8 @@
     <packaging>jar</packaging>
 
     <name>spring-ws-helloworld-example</name>
-    <description>Spring WS - Consume &amp; Provide a Web Service Using WSDL</description>
-    <url>http://www.codenotfound.com/2016/10/spring-ws-consume-provide-web-service-wsdl.html</url>
+    <description>Spring WS - SOAP Web Service Consumer &amp; Provider WSDL Example</description>
+    <url>http://www.codenotfound.com/2016/10/spring-ws-soap-web-service-consumer-provider-wsdl-example.html</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
