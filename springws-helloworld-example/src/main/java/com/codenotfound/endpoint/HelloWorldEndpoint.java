@@ -22,7 +22,6 @@ public class HelloWorldEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "person")
     @ResponsePayload
     public Greeting sayHello(@RequestPayload Person request) {
-
         LOGGER.info(
                 "Endpoint received person[firstName={},lastName={}]",
                 request.getFirstName(), request.getLastName());
