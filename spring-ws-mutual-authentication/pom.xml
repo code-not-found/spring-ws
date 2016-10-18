@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.codenotfound</groupId>
-    <artifactId>springws-mutual-authentication</artifactId>
+    <artifactId>spring-ws-mutual-authentication</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>springws-mutual-authentication</name>
+    <name>spring-ws-mutual-authentication</name>
     <description>Spring-WS - Client &amp; Server Mutual Authentication Example</description>
     <url>http://</url>
 
