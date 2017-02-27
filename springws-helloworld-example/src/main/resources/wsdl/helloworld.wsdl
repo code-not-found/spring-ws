@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <wsdl:definitions name="HelloWorld"
-
     targetNamespace="http://codenotfound.com/services/helloworld"
     xmlns:tns="http://codenotfound.com/services/helloworld" xmlns:types="http://codenotfound.com/types/helloworld"
     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">

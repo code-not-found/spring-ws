@@ -10,13 +10,12 @@
 
     <name>spring-ws-helloworld-example</name>
     <description>Spring WS - SOAP Web Service Consumer &amp; Provider WSDL Example</description>
-    <url>http://www.codenotfound.com/2016/10/spring-ws-soap-web-service-consumer-provider-wsdl-example.html</url>
+    <url>https://www.codenotfound.com/2016/10/spring-ws-soap-web-service-consumer-provider-wsdl-example.html</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.1.RELEASE</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <version>1.5.1.RELEASE</version>
     </parent>
 
     <properties>
