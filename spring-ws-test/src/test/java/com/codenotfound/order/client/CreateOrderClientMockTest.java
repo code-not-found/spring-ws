@@ -26,7 +26,7 @@ import com.codenotfound.types.order.ProductType;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CreateOrderClientIntegrationTest {
+public class CreateOrderClientMockTest {
 
     @Autowired
     private CreateOrderClient createOrderClient;
@@ -53,7 +53,7 @@ public class CreateOrderClientIntegrationTest {
 
         ProductType product1 = factory.createProductType();
         product1.setId("2");
-        product1.setName("spuerman action figure");
+        product1.setName("superman action figure");
 
         LineItemType lineItem1 = factory.createLineItemType();
         lineItem1.setProduct(product1);
@@ -71,7 +71,7 @@ public class CreateOrderClientIntegrationTest {
                         + "<ns2:lastName>Doe</ns2:lastName>"
                         + "</ns2:customer><ns2:lineItems><ns2:lineItem>"
                         + "<ns2:product>" + "<ns2:id>2</ns2:id>"
-                        + "<ns2:name>spuerman action figure</ns2:name>"
+                        + "<ns2:name>superman action figure</ns2:name>"
                         + "</ns2:product>"
                         + "<ns2:quantity>1</ns2:quantity>"
                         + "</ns2:lineItem>" + "</ns2:lineItems>"

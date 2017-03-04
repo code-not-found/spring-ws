@@ -21,7 +21,7 @@ import org.springframework.xml.transform.StringSource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CreateOrderEndpointIntegrationTest {
+public class CreateOrderEndpointMockTest {
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -49,12 +49,12 @@ public class CreateOrderEndpointIntegrationTest {
                         + "</ns2:lineItem>" + "</ns2:lineItems>"
                         + "</ns2:order>");
 
-        Map<String, String> namespaces = Collections.singletonMap("ns2",
+        Map<String, String> namespaces = Collections.singletonMap("ns1",
                 "http://codenotfound.com/types/order");
 
         mockClient.sendRequest(withPayload(requestPayload))
                 .andExpect(ResponseMatchers
-                        .xpath("/ns2:orderConfirmation/ns2:confirmationId",
+                        .xpath("/ns1:orderConfirmation/ns1:confirmationId",
                                 namespaces)
                         .exists());
     }
