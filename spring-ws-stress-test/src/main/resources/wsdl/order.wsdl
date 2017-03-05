@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<wsdl:definitions name="Order"
+    targetNamespace="http://codenotfound.com/services/order" xmlns:tns="http://codenotfound.com/services/order"
+    xmlns:types="http://codenotfound.com/types/order" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:p="http://www.w3.org/2001/XMLSchema">
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://codenotfound.com/types/order"
+            xmlns:tns="http://codenotfound.com/types/order" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified" attributeFormDefault="unqualified"
+            version="1.0">
+
+            <xsd:element name="order">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="customer" type="tns:customerType" />
+                        <xsd:element name="lineItems"
+                            type="tns:lineItemsType" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="orderConfirmation">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="confirmationId"
+                            type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="orderError">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="code" type="xsd:string" />
+                        <xsd:element name="description"
+                            type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:complexType name="customerType">
+                <xsd:sequence>
+                    <xsd:element name="firstName" type="xsd:string" />
+                    <xsd:element name="lastName" type="xsd:string" />
+                    <xsd:element name="street" type="xsd:string" />
+                    <xsd:element name="city" type="xsd:string" />
+                    <xsd:element name="state" type="xsd:string" />
+                    <xsd:element name="zip" type="xsd:string" />
+                    <xsd:element name="country" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="lineItemsType">
+                <xsd:sequence>
+                    <xsd:element name="lineItem" type="tns:lineItemType"
+                        minOccurs="1" maxOccurs="unbounded" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="lineItemType">
+                <xsd:sequence>
+                    <xsd:element name="product" type="tns:productType" />
+                    <xsd:element name="quantity" type="xsd:integer" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="productType">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string" />
+                    <xsd:element name="name" type="xsd:string" />
+                    <xsd:element name="description" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+
+    </wsdl:types>
+
+    <wsdl:message name="OrderRequest">
+        <wsdl:part name="order" element="types:order" />
+    </wsdl:message>
+
+    <wsdl:message name="OrderResponse">
+        <wsdl:part name="orderConfirmation" element="types:orderConfirmation" />
+    </wsdl:message>
+
+    <wsdl:message name="OrderFault">
+        <wsdl:part name="orderFault" element="types:orderError"></wsdl:part>
+    </wsdl:message>
+
+    <wsdl:portType name="Order_PortType">
+        <wsdl:operation name="createOrder">
+            <wsdl:input message="tns:OrderRequest" />
+            <wsdl:output message="tns:OrderResponse" />
+            <wsdl:fault name="fault" message="tns:OrderFault"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="Order_SoapBinding" type="tns:Order_PortType">
+        <soap:binding style="document"
+            transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="createOrder">
+            <soap:operation
+                soapAction="http://codenotfound.com/services/order/createOrder" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault use="literal" name="fault" />
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="Order_Service">
+        <wsdl:documentation>Order service</wsdl:documentation>
+        <wsdl:port name="Order_Port" binding="tns:Order_SoapBinding">
+            <soap:address location="http://localhost:9090/codenotfound/ws/order" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,27 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://codenotfound.com/types/order">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:order>
+         <ord:customer>
+            <ord:firstName>gero et</ord:firstName>
+            <ord:lastName>sonoras imperio</ord:lastName>
+            <ord:street>quae divum incedo</ord:street>
+            <ord:city>verrantque per auras</ord:city>
+            <ord:state>per auras</ord:state>
+            <ord:zip>circum claustra</ord:zip>
+            <ord:country>nimborum in</ord:country>
+         </ord:customer>
+         <ord:lineItems>
+            <!--1 or more repetitions:-->
+            <ord:lineItem>
+               <ord:product>
+                  <ord:id>foedere certo</ord:id>
+                  <ord:name>profundum quippe ferant</ord:name>
+                  <ord:description>et carcere</ord:description>
+               </ord:product>
+               <ord:quantity>100</ord:quantity>
+            </ord:lineItem>
+         </ord:lineItems>
+      </ord:order>
+   </soapenv:Body>
+</soapenv:Envelope>
