@@ -1,0 +1,6 @@
+language: java
+jdk:
+- oraclejdk8
+env:
+- TEST_DIR=spring-ws-helloworld
+script: cd $TEST_DIR && mvn test -B
