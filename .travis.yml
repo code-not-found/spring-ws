@@ -25,5 +25,4 @@ cache:
   - $HOME/.sonar/cache
 
 notifications:
-  email:
-  - false
+  email: false
