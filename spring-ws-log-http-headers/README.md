@@ -1,4 +1,4 @@
-spring-ws-log-http-headers
+# spring-ws-log-http-headers
 
 [![Quality Gate](https://sonarqube.com/api/badges/gate?key=com.codenotfound:spring-ws-log-http-headers)](https://sonarqube.com/dashboard/index/com.codenotfound:spring-ws-log-http-headers)
 
