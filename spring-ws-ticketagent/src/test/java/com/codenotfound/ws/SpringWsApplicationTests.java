@@ -22,7 +22,7 @@ public class SpringWsApplicationTests {
   private TicketAgentClient ticketAgentClient;
 
   @Test
-  public void testSayHello() {
+  public void testListFlights() {
     List<BigInteger> flights = ticketAgentClient.listFlights();
 
     assertThat(flights).isNotEmpty();
