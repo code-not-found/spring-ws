@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>spring-ws-unit-test</name>
-    <description>Spring WS - Unit Test by Mocking the Client and Web Service Endpoint</description>
+    <description>Spring WS - Unit Test by Mocking the Client &amp; Web Service Endpoint</description>
     <url>https://www.codenotfound.com/2017/02/spring-ws-unit-test-mocking-client-web-service-endpoint.html</url>
 
     <parent>

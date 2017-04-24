@@ -18,31 +18,27 @@ import org.springframework.ws.soap.SoapMessage;
 @Component
 public class TicketAgentClient {
 
-    @Autowired
-    private WebServiceTemplate webServiceTemplate;
+  @Autowired
+  private WebServiceTemplate webServiceTemplate;
 
-    @SuppressWarnings("unchecked")
-    public List<BigInteger> listFlights() {
+  @SuppressWarnings("unchecked")
+  public List<BigInteger> listFlights() {
 
-        ObjectFactory factory = new ObjectFactory();
-        TListFlights tListFlights = factory.createTListFlights();
+    ObjectFactory factory = new ObjectFactory();
+    TListFlights tListFlights = factory.createTListFlights();
 
-        JAXBElement<TListFlights> request = factory
-                .createListFlightsRequest(tListFlights);
+    JAXBElement<TListFlights> request = factory.createListFlightsRequest(tListFlights);
 
-        JAXBElement<TFlightsResponse> response = (JAXBElement<TFlightsResponse>) webServiceTemplate
-                .marshalSendAndReceive(request,
-                        new WebServiceMessageCallback() {
+    JAXBElement<TFlightsResponse> response = (JAXBElement<TFlightsResponse>) webServiceTemplate
+        .marshalSendAndReceive(request, new WebServiceMessageCallback() {
 
-                            public void doWithMessage(
-                                    WebServiceMessage webServiceMessage) {
-                                // set the soapaction header
-                                ((SoapMessage) webServiceMessage)
-                                        .setSoapAction(
-                                                "http://example.com/TicketAgent/listFlights");
-                            }
-                        });
+          public void doWithMessage(WebServiceMessage webServiceMessage) {
+            // set the soapaction header
+            ((SoapMessage) webServiceMessage)
+                .setSoapAction("http://example.com/TicketAgent/listFlights");
+          }
+        });
 
-        return response.getValue().getFlightNumber();
-    }
+    return response.getValue().getFlightNumber();
+  }
 }
