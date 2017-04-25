@@ -31,7 +31,7 @@ public class TicketAgentEndpoint {
     // access the SOAPAction value
     WebServiceMessage webServiceMessage = messageContext.getRequest();
     SoapMessage soapMessage = (SoapMessage) webServiceMessage;
-    LOGGER.info("SOAPAction: '{}'", soapMessage.getSoapAction());
+    LOGGER.info("SOAPAction header: {}", soapMessage.getSoapAction());
 
     ObjectFactory factory = new ObjectFactory();
     TFlightsResponse tFlightsResponse = factory.createTFlightsResponse();
