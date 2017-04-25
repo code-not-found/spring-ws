@@ -22,12 +22,13 @@ public class TicketAgentEndpoint {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(TicketAgentEndpoint.class);
 
+  // map a message to this endpoint based on the SOAPAction
   @SoapAction(value = "http://example.com/TicketAgent/listFlights")
   @ResponsePayload
   public JAXBElement<TFlightsResponse> listFlights(
       @RequestPayload JAXBElement<TListFlights> request, MessageContext messageContext) {
 
-    // access the SOAPAction
+    // access the SOAPAction value
     WebServiceMessage webServiceMessage = messageContext.getRequest();
     SoapMessage soapMessage = (SoapMessage) webServiceMessage;
     LOGGER.info("SOAPAction: '{}'", soapMessage.getSoapAction());

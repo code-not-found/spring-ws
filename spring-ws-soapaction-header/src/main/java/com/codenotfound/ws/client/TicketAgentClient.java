@@ -27,6 +27,7 @@ public class TicketAgentClient {
 
     JAXBElement<TListFlights> request = factory.createListFlightsRequest(tListFlights);
 
+    // use SoapActionCallback to add the SOAPAction
     JAXBElement<TFlightsResponse> response =
         (JAXBElement<TFlightsResponse>) webServiceTemplate.marshalSendAndReceive(request,
             new SoapActionCallback("http://example.com/TicketAgent/listFlights"));
