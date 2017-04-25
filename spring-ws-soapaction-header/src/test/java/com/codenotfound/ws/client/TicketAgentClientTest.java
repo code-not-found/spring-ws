@@ -23,41 +23,36 @@ import org.springframework.xml.transform.StringSource;
 @SpringBootTest
 public class TicketAgentClientTest {
 
-    @Autowired
-    private TicketAgentClient ticketAgentClient;
+  @Autowired
+  private TicketAgentClient ticketAgentClient;
 
-    @Autowired
-    private WebServiceTemplate webServiceTemplate;
+  @Autowired
+  private WebServiceTemplate webServiceTemplate;
 
-    private MockWebServiceServer mockWebServiceServer;
+  private MockWebServiceServer mockWebServiceServer;
 
-    @Before
-    public void createServer() {
-        mockWebServiceServer = MockWebServiceServer
-                .createServer(webServiceTemplate);
-    }
+  @Before
+  public void createServer() {
+    mockWebServiceServer = MockWebServiceServer.createServer(webServiceTemplate);
+  }
 
-    @Test
-    public void testListFlights() {
-        Source requestPayload = new StringSource(
-                "<ns3:listFlightsRequest xmlns:ns3=\"http://example.org/TicketAgent.xsd\">"
-                        + "</ns3:listFlightsRequest>");
+  @Test
+  public void testListFlights() {
+    Source requestPayload =
+        new StringSource("<ns3:listFlightsRequest xmlns:ns3=\"http://example.org/TicketAgent.xsd\">"
+            + "</ns3:listFlightsRequest>");
 
-        Source responsePayload = new StringSource(
-                "<v1:listFlightsResponse xmlns:v1=\"http://example.org/TicketAgent.xsd\">"
-                        + "<flightNumber>101</flightNumber>"
-                        + "</v1:listFlightsResponse>");
+    Source responsePayload =
+        new StringSource("<v1:listFlightsResponse xmlns:v1=\"http://example.org/TicketAgent.xsd\">"
+            + "<flightNumber>101</flightNumber>" + "</v1:listFlightsResponse>");
 
-        // check if the SOAPAction is present using the custom matcher
-        mockWebServiceServer
-                .expect(new SoapActionMatcher(
-                        "http://example.com/TicketAgent/listFlights"))
-                .andExpect(payload(requestPayload))
-                .andRespond(withPayload(responsePayload));
+    // check if the SOAPAction is present using the custom matcher
+    mockWebServiceServer.expect(new SoapActionMatcher("http://example.com/TicketAgent/listFlights"))
+        .andExpect(payload(requestPayload)).andRespond(withPayload(responsePayload));
 
-        List<BigInteger> flights = ticketAgentClient.listFlights();
-        assertThat(flights.get(0)).isEqualTo(BigInteger.valueOf(101));
+    List<BigInteger> flights = ticketAgentClient.listFlights();
+    assertThat(flights.get(0)).isEqualTo(BigInteger.valueOf(101));
 
-        mockWebServiceServer.verify();
-    }
+    mockWebServiceServer.verify();
+  }
 }

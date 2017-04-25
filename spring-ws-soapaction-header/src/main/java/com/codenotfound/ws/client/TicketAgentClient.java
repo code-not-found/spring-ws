@@ -10,10 +10,8 @@ import org.example.ticketagent.TFlightsResponse;
 import org.example.ticketagent.TListFlights;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.ws.WebServiceMessage;
-import org.springframework.ws.client.core.WebServiceMessageCallback;
 import org.springframework.ws.client.core.WebServiceTemplate;
-import org.springframework.ws.soap.SoapMessage;
+import org.springframework.ws.soap.client.core.SoapActionCallback;
 
 @Component
 public class TicketAgentClient {
@@ -29,15 +27,9 @@ public class TicketAgentClient {
 
     JAXBElement<TListFlights> request = factory.createListFlightsRequest(tListFlights);
 
-    JAXBElement<TFlightsResponse> response = (JAXBElement<TFlightsResponse>) webServiceTemplate
-        .marshalSendAndReceive(request, new WebServiceMessageCallback() {
-
-          public void doWithMessage(WebServiceMessage webServiceMessage) {
-            // set the soapaction header
-            ((SoapMessage) webServiceMessage)
-                .setSoapAction("http://example.com/TicketAgent/listFlights");
-          }
-        });
+    JAXBElement<TFlightsResponse> response =
+        (JAXBElement<TFlightsResponse>) webServiceTemplate.marshalSendAndReceive(request,
+            new SoapActionCallback("http://example.com/TicketAgent/listFlights"));
 
     return response.getValue().getFlightNumber();
   }

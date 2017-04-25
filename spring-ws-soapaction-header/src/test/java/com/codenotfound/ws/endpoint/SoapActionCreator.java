@@ -12,27 +12,24 @@ import org.springframework.ws.test.support.creator.PayloadMessageCreator;
 
 public class SoapActionCreator implements RequestCreator {
 
-    private final Source payload;
+  private final Source payload;
 
-    private final String soapAction;
+  private final String soapAction;
 
-    public SoapActionCreator(Source payload, String soapAction) {
-        this.payload = payload;
-        this.soapAction = soapAction;
+  public SoapActionCreator(Source payload, String soapAction) {
+    this.payload = payload;
+    this.soapAction = soapAction;
+  }
 
-    }
+  @Override
+  public WebServiceMessage createRequest(WebServiceMessageFactory webServiceMessageFactory)
+      throws IOException {
+    WebServiceMessage webServiceMessage =
+        new PayloadMessageCreator(payload).createMessage(webServiceMessageFactory);
 
-    @Override
-    public WebServiceMessage createRequest(
-            WebServiceMessageFactory webServiceMessageFactory)
-                    throws IOException {
+    SoapMessage soapMessage = (SoapMessage) webServiceMessage;
+    soapMessage.setSoapAction(soapAction);
 
-        WebServiceMessage webServiceMessage = new PayloadMessageCreator(
-                payload).createMessage(webServiceMessageFactory);
-
-        SoapMessage soapMessage = (SoapMessage) webServiceMessage;
-        soapMessage.setSoapAction(soapAction);
-
-        return webServiceMessage;
-    }
+    return webServiceMessage;
+  }
 }

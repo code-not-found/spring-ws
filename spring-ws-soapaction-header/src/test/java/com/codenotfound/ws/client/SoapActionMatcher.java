@@ -12,19 +12,18 @@ import org.springframework.ws.test.client.RequestMatcher;
 
 public class SoapActionMatcher implements RequestMatcher {
 
-    private final String expectedSoapAction;
+  private final String expectedSoapAction;
 
-    public SoapActionMatcher(String expectedSoapAction) {
-        this.expectedSoapAction = SoapUtils
-                .escapeAction(expectedSoapAction);
-    }
+  public SoapActionMatcher(String expectedSoapAction) {
+    this.expectedSoapAction = SoapUtils.escapeAction(expectedSoapAction);
+  }
 
-    @Override
-    public void match(URI uri, WebServiceMessage webServiceMessage)
-            throws IOException, AssertionError {
-        assertThat(webServiceMessage).isInstanceOf(SoapMessage.class);
-        SoapMessage soapMessage = (SoapMessage) webServiceMessage;
-        assertThat(soapMessage.getSoapAction())
-                .isEqualTo(expectedSoapAction);
-    }
+  @Override
+  public void match(URI uri, WebServiceMessage webServiceMessage)
+      throws IOException, AssertionError {
+    assertThat(webServiceMessage).isInstanceOf(SoapMessage.class);
+
+    SoapMessage soapMessage = (SoapMessage) webServiceMessage;
+    assertThat(soapMessage.getSoapAction()).isEqualTo(expectedSoapAction);
+  }
 }

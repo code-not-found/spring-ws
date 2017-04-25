@@ -18,31 +18,29 @@ import org.springframework.xml.transform.StringSource;
 @SpringBootTest
 public class TicketAgentEndpointTest {
 
-    @Autowired
-    private ApplicationContext applicationContext;
+  @Autowired
+  private ApplicationContext applicationContext;
 
-    private MockWebServiceClient mockClient;
+  private MockWebServiceClient mockClient;
 
-    @Before
-    public void createClient() {
-        mockClient = MockWebServiceClient
-                .createClient(applicationContext);
-    }
+  @Before
+  public void createClient() {
+    mockClient = MockWebServiceClient.createClient(applicationContext);
+  }
 
-    @Test
-    public void testListFlights() {
-        Source requestPayload = new StringSource(
-                "<ns3:listFlightsRequest xmlns:ns3=\"http://example.org/TicketAgent.xsd\">"
-                        + "</ns3:listFlightsRequest>");
+  @Test
+  public void testListFlights() {
+    Source requestPayload =
+        new StringSource("<ns3:listFlightsRequest xmlns:ns3=\"http://example.org/TicketAgent.xsd\">"
+            + "</ns3:listFlightsRequest>");
 
-        Source responsePayload = new StringSource(
-                "<v1:listFlightsResponse xmlns:v1=\"http://example.org/TicketAgent.xsd\">"
-                        + "<flightNumber>101</flightNumber>"
-                        + "</v1:listFlightsResponse>");
+    Source responsePayload =
+        new StringSource("<v1:listFlightsResponse xmlns:v1=\"http://example.org/TicketAgent.xsd\">"
+            + "<flightNumber>101</flightNumber>" + "</v1:listFlightsResponse>");
 
-        mockClient
-                .sendRequest(new SoapActionCreator(requestPayload,
-                        "http://example.com/TicketAgent/listFlights"))
-                .andExpect(payload(responsePayload));
-    }
+    mockClient
+        .sendRequest(
+            new SoapActionCreator(requestPayload, "http://example.com/TicketAgent/listFlights"))
+        .andExpect(payload(responsePayload));
+  }
 }
