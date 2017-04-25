@@ -15,6 +15,7 @@ env:
 - PROJECT_DIR=spring-ws-helloworld
 - PROJECT_DIR=spring-ws-log-http-headers
 - PROJECT_DIR=spring-ws-soapaction-header
+- PROJECT_DIR=spring-ws-soap-header
 - PROJECT_DIR=spring-ws-ticketagent
 
 script:

@@ -25,6 +25,6 @@ public class SpringWsApplicationTests {
   public void testListFlights() {
     List<BigInteger> flights = ticketAgentClient.listFlights();
 
-    assertThat(flights).isNotEmpty();
+    assertThat(flights.get(0)).isEqualTo(BigInteger.valueOf(101));
   }
 }
