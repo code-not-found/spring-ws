@@ -4,4 +4,4 @@
 
 A detailed step-by-step tutorial on how to log the client and server HTTP headers using Spring-WS and Spring Boot.
 
-[https://www.codenotfound.com/2017/04/log-client-server-http-headers.html](https://www.codenotfound.com/2017/04/log-client-server-http-headers.html)
+[https://www.codenotfound.com/2017/04/spring-ws-log-client-server-http-headers.html](https://www.codenotfound.com/2017/04/spring-ws-log-client-server-http-headers.html)
