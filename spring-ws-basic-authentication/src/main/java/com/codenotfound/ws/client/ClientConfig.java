@@ -34,7 +34,7 @@ public class ClientConfig {
     webServiceTemplate.setMarshaller(jaxb2Marshaller());
     webServiceTemplate.setUnmarshaller(jaxb2Marshaller());
     webServiceTemplate.setDefaultUri("http://localhost:9090/codenotfound/ws/ticketagent");
-    // set
+    // set the Apache HttpClient which provides support for basic authentication
     webServiceTemplate.setMessageSender(httpComponentsMessageSender());
 
     return webServiceTemplate;
@@ -43,6 +43,7 @@ public class ClientConfig {
   @Bean
   public HttpComponentsMessageSender httpComponentsMessageSender() {
     HttpComponentsMessageSender httpComponentsMessageSender = new HttpComponentsMessageSender();
+    // set the basic authorization credentials
     httpComponentsMessageSender.setCredentials(usernamePasswordCredentials());
 
     return httpComponentsMessageSender;
@@ -50,6 +51,7 @@ public class ClientConfig {
 
   @Bean
   public UsernamePasswordCredentials usernamePasswordCredentials() {
+    // pass the user name and password to be used
     return new UsernamePasswordCredentials(name, password);
   }
 }
