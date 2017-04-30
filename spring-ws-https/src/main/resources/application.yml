@@ -1,0 +1,13 @@
+client:
+  default-uri: https://localhost:9443/codenotfound/ws/ticketagent
+  ssl:
+    trust-store: classpath:jks/client-truststore.jks
+    trust-store-password: client-truststore-p455w0rd
+
+server:
+  port: 9443
+  ssl:
+    key-store: classpath:jks/server-keystore.jks
+    key-store-password: server-keystore-p455w0rd
+    key-alias: server-keypair
+    key-password: server-key-p455w0rd
