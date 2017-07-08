@@ -10,7 +10,7 @@
 
   <name>spring-ws-mutual-authentication</name>
   <description>Spring WS - Mutual Authentication Example</description>
-  <url>https://www.codenotfound.com/2017/05/spring-ws-mutual-authentication-example.html</url>
+  <url>https://www.codenotfound.com/2017/07/spring-ws-mutual-authentication-example.html</url>
 
   <parent>
     <groupId>org.springframework.boot</groupId>

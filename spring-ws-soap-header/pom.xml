@@ -10,12 +10,12 @@
 
   <name>spring-ws-soap-header</name>
   <description>Spring-WS - SOAP Header Example</description>
-  <url>https://www.codenotfound.com/spring-ws/2017/04/spring-ws-soap-header-example.html</url>
+  <url>https://www.codenotfound.com/spring-ws/2017/07/spring-ws-soap-header-example.html</url>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.2.RELEASE</version>
+    <version>1.5.4.RELEASE</version>
   </parent>
 
   <properties>
