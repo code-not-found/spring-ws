@@ -29,8 +29,6 @@
       <xs:complexType name="ListFlightsSoapHeaders">
         <xs:sequence>
           <xs:element name="isGoldClubMember" type="xs:boolean" />
-          <xs:element name="promotionalCode" type="xs:string"
-            minOccurs="0" />
         </xs:sequence>
       </xs:complexType>
     </xs:schema>

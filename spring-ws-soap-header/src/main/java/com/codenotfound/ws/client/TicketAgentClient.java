@@ -51,7 +51,6 @@ public class TicketAgentClient {
               ListFlightsSoapHeaders listFlightsSoapHeaders =
                   factory.createListFlightsSoapHeaders();
               listFlightsSoapHeaders.setIsGoldClubMember(true);
-              listFlightsSoapHeaders.setPromotionalCode("ABC123");
 
               JAXBElement<ListFlightsSoapHeaders> headers =
                   factory.createListFlightsSoapHeaders(listFlightsSoapHeaders);

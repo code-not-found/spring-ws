@@ -29,7 +29,7 @@ public class TicketAgentEndpoint {
   @ResponsePayload
   public JAXBElement<TFlightsResponse> listFlights(
       @RequestPayload JAXBElement<TListFlights> request, @SoapHeader(
-          value = "{http://example.org/TicketAgent.xsd}listFlightsSoapHeaders") SoapHeaderElement soapHeader) {
+          value = "{http://example.org/TicketAgent.xsd}listFlightsSoapHeaders") SoapHeaderElement soapHeaderElement) {
 
     boolean isGoldClubMember = false;
 
@@ -40,7 +40,8 @@ public class TicketAgentEndpoint {
 
       // unmarshal the header from the specified source
       JAXBElement<ListFlightsSoapHeaders> headers =
-          (JAXBElement<ListFlightsSoapHeaders>) unmarshaller.unmarshal(soapHeader.getSource());
+          (JAXBElement<ListFlightsSoapHeaders>) unmarshaller
+              .unmarshal(soapHeaderElement.getSource());
 
       // get the header values
       ListFlightsSoapHeaders requestSoapHeaders = headers.getValue();
@@ -48,7 +49,6 @@ public class TicketAgentEndpoint {
     } catch (Exception e) {
       LOGGER.error("error during unmarshalling of the SOAP headers", e);
     }
-
 
     ObjectFactory factory = new ObjectFactory();
     TFlightsResponse tFlightsResponse = factory.createTFlightsResponse();
