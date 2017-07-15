@@ -15,13 +15,13 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.2.RELEASE</version>
+    <version>1.5.4.RELEASE</version>
   </parent>
 
   <properties>
     <java.version>1.8</java.version>
 
-    <maven-jaxb2-plugin.version>0.13.1</maven-jaxb2-plugin.version>
+    <maven-jaxb2-plugin.version>0.13.2</maven-jaxb2-plugin.version>
   </properties>
 
   <dependencies>
