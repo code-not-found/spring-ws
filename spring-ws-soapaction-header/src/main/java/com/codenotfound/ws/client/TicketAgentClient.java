@@ -21,7 +21,6 @@ public class TicketAgentClient {
 
   @SuppressWarnings("unchecked")
   public List<BigInteger> listFlights() {
-
     ObjectFactory factory = new ObjectFactory();
     TListFlights tListFlights = factory.createTListFlights();
 

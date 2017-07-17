@@ -17,7 +17,6 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 
   @Bean
   public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {
-
     MessageDispatcherServlet servlet = new MessageDispatcherServlet();
     servlet.setApplicationContext(applicationContext);
 

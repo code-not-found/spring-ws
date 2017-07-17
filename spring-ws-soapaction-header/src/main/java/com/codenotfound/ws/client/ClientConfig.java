@@ -10,15 +10,14 @@ public class ClientConfig {
 
   @Bean
   Jaxb2Marshaller jaxb2Marshaller() {
-
     Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
     jaxb2Marshaller.setContextPath("org.example.ticketagent");
+
     return jaxb2Marshaller;
   }
 
   @Bean
   public WebServiceTemplate webServiceTemplate() {
-
     WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
     webServiceTemplate.setMarshaller(jaxb2Marshaller());
     webServiceTemplate.setUnmarshaller(jaxb2Marshaller());

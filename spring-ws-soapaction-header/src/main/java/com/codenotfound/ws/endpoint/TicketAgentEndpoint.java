@@ -27,7 +27,6 @@ public class TicketAgentEndpoint {
   @ResponsePayload
   public JAXBElement<TFlightsResponse> listFlights(
       @RequestPayload JAXBElement<TListFlights> request, MessageContext messageContext) {
-
     // access the SOAPAction value
     WebServiceMessage webServiceMessage = messageContext.getRequest();
     SoapMessage soapMessage = (SoapMessage) webServiceMessage;
