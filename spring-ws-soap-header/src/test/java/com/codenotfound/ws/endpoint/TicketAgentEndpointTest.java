@@ -35,9 +35,8 @@ public class TicketAgentEndpointTest {
         "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\">"
             + "<SOAP-ENV:Header>"
             + "<ns3:listFlightsSoapHeaders xmlns:ns3=\"http://example.org/TicketAgent.xsd\">"
-            + "<isGoldClubMember>true</isGoldClubMember>"
-            + "<promotionalCode>ABC123</promotionalCode>" + "</ns3:listFlightsSoapHeaders>"
-            + "</SOAP-ENV:Header>" + "<SOAP-ENV:Body>"
+            + "<isGoldClubMember>true</isGoldClubMember>" + "<clientId>abc123</clientId>"
+            + "</ns3:listFlightsSoapHeaders>" + "</SOAP-ENV:Header>" + "<SOAP-ENV:Body>"
             + "<ns3:listFlightsRequest xmlns:ns3=\"http://example.org/TicketAgent.xsd\">"
             + "</ns3:listFlightsRequest>" + "</SOAP-ENV:Body>" + "</SOAP-ENV:Envelope>");
 

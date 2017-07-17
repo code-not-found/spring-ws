@@ -50,7 +50,7 @@ public class TicketAgentClient {
               ObjectFactory factory = new ObjectFactory();
               ListFlightsSoapHeaders listFlightsSoapHeaders =
                   factory.createListFlightsSoapHeaders();
-              listFlightsSoapHeaders.setIsGoldClubMember(true);
+              listFlightsSoapHeaders.setClientId("abc123");
 
               JAXBElement<ListFlightsSoapHeaders> headers =
                   factory.createListFlightsSoapHeaders(listFlightsSoapHeaders);

@@ -28,7 +28,7 @@
       <xs:element name="listFlightsSoapHeaders" type="xsTicketAgent:ListFlightsSoapHeaders" />
       <xs:complexType name="ListFlightsSoapHeaders">
         <xs:sequence>
-          <xs:element name="isGoldClubMember" type="xs:boolean" />
+          <xs:element name="clientId" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
     </xs:schema>

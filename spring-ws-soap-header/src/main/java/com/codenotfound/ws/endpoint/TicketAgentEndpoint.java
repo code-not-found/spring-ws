@@ -30,9 +30,7 @@ public class TicketAgentEndpoint {
   public JAXBElement<TFlightsResponse> listFlights(
       @RequestPayload JAXBElement<TListFlights> request, @SoapHeader(
           value = "{http://example.org/TicketAgent.xsd}listFlightsSoapHeaders") SoapHeaderElement soapHeaderElement) {
-
-    boolean isGoldClubMember = false;
-
+    String clientId = "unknown";
     try {
       // create an unmarshaller
       JAXBContext context = JAXBContext.newInstance(ObjectFactory.class);
@@ -45,7 +43,7 @@ public class TicketAgentEndpoint {
 
       // get the header values
       ListFlightsSoapHeaders requestSoapHeaders = headers.getValue();
-      isGoldClubMember = requestSoapHeaders.isIsGoldClubMember();
+      clientId = requestSoapHeaders.getClientId();
     } catch (Exception e) {
       LOGGER.error("error during unmarshalling of the SOAP headers", e);
     }
@@ -55,7 +53,7 @@ public class TicketAgentEndpoint {
     tFlightsResponse.getFlightNumber().add(BigInteger.valueOf(101));
 
     // add an extra flightNumber in the case of a GoldClubMember
-    if (isGoldClubMember) {
+    if ("abc123".equals(clientId)) {
       LOGGER.info("GoldClubMember found!");
       tFlightsResponse.getFlightNumber().add(BigInteger.valueOf(202));
     }
