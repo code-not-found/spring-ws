@@ -4,7 +4,7 @@ import org.springframework.ws.client.WebServiceClientException;
 import org.springframework.ws.client.support.interceptor.ClientInterceptor;
 import org.springframework.ws.context.MessageContext;
 
-public class CustomClientInterceptor implements ClientInterceptor {
+public class LogHttpHeaderClientInterceptor implements ClientInterceptor {
 
   @Override
   public void afterCompletion(MessageContext arg0, Exception arg1)

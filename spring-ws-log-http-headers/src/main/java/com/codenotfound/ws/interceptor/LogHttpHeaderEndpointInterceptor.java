@@ -3,7 +3,7 @@ package com.codenotfound.ws.interceptor;
 import org.springframework.ws.context.MessageContext;
 import org.springframework.ws.server.EndpointInterceptor;
 
-public class CustomEndpointInterceptor implements EndpointInterceptor {
+public class LogHttpHeaderEndpointInterceptor implements EndpointInterceptor {
 
   @Override
   public void afterCompletion(MessageContext arg0, Object arg1, Exception arg2) throws Exception {

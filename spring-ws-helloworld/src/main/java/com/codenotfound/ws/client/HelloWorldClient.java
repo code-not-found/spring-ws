@@ -19,7 +19,6 @@ public class HelloWorldClient {
   private WebServiceTemplate webServiceTemplate;
 
   public String sayHello(String firstName, String lastName) {
-
     ObjectFactory factory = new ObjectFactory();
     Person person = factory.createPerson();
 
