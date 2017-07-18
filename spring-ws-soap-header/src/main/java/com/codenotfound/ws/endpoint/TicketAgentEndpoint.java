@@ -31,6 +31,7 @@ public class TicketAgentEndpoint {
       @RequestPayload JAXBElement<TListFlights> request, @SoapHeader(
           value = "{http://example.org/TicketAgent.xsd}listFlightsSoapHeaders") SoapHeaderElement soapHeaderElement) {
     String clientId = "unknown";
+
     try {
       // create an unmarshaller
       JAXBContext context = JAXBContext.newInstance(ObjectFactory.class);
@@ -52,9 +53,9 @@ public class TicketAgentEndpoint {
     TFlightsResponse tFlightsResponse = factory.createTFlightsResponse();
     tFlightsResponse.getFlightNumber().add(BigInteger.valueOf(101));
 
-    // add an extra flightNumber in the case of a GoldClubMember
+    // add an extra flightNumber in the case of a clientId == abc123
     if ("abc123".equals(clientId)) {
-      LOGGER.info("GoldClubMember found!");
+      LOGGER.info("clientId == abc123");
       tFlightsResponse.getFlightNumber().add(BigInteger.valueOf(202));
     }
 
