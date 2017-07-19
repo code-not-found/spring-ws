@@ -56,15 +56,13 @@ public class OrderHistoryClient {
         // get the orderId
         String orderId = orderIdXPath.evaluateAsString(node);
         // create an order
-        Order order = new Order(orderId);
-        LOGGER.info("found " + order.toString());
-
-        return order;
+        return new Order(orderId);
       }
     });
 
     OrderHistory result = new OrderHistory();
     result.setOrders(orders);
+    LOGGER.info("found '{}' orders for userId='{}'", result.getOrders().size(), userId);
 
     return result;
   }

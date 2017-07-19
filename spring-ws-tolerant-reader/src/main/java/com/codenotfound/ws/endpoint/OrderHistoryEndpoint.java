@@ -26,11 +26,9 @@ public class OrderHistoryEndpoint {
   @Namespace(prefix = "oh", uri = "http://codenotfound.com/types/orderhistory")
   @ResponsePayload
   public GetOrderHistoryResponse getOrderHistory(@XPathParam(userIdXPath) String userId) {
-    LOGGER.info("received request for order history of userId={}", userId);
+    LOGGER.info("received request for order history of userId='{}'", userId);
 
-    // TODO fetch the order history for the received user ID
-
-    // create the order history for the received user
+    // fetch the order history for the received user
     ObjectFactory factory = new ObjectFactory();
     OrderListType orderListType = factory.createOrderListType();
 
