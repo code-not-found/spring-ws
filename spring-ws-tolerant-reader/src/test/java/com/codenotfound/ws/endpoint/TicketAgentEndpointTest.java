@@ -68,7 +68,7 @@ public class TicketAgentEndpointTest {
   public void testGetOrderHistoryMinimumAssumptions() {
     Source requestPayload = new StringSource(
         "<ns1:getOrderHistoryRequest xmlns:ns1=\"http://codenotfound.com/types/orderhistory\">"
-            + "<ns1:anotherElement>" + "<ns1:userId>pqr123</ns1:userId>" + "</ns1:anotherElement>"
+            + "<ns1:oldWrapper>" + "<ns1:userId>pqr123</ns1:userId>" + "</ns1:oldWrapper>"
             + "</ns1:getOrderHistoryRequest>");
 
     Source responsePayload = new StringSource(

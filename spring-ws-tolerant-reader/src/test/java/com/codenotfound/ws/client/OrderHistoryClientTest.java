@@ -89,11 +89,11 @@ public class OrderHistoryClientTest {
 
     Source responsePayload = new StringSource(
         "<ns1:getOrderHistoryResponse xmlns:ns1=\"http://codenotfound.com/types/orderhistory\">"
-            + "<ns1:anotherElement>" + "<ns1:orderHistory>" + "<ns1:orderList>"
+            + "<ns1:newWrapper>" + "<ns1:orderHistory>" + "<ns1:orderList>"
             + "<ns1:order><ns1:orderId>order7</ns1:orderId></ns1:order>"
             + "<ns1:order><ns1:orderId>order8</ns1:orderId></ns1:order>"
             + "<ns1:order><ns1:orderId>order9</ns1:orderId></ns1:order>" + "</ns1:orderList>"
-            + "</ns1:orderHistory>" + "</ns1:anotherElement>" + "</ns1:getOrderHistoryResponse>");
+            + "</ns1:orderHistory>" + "</ns1:newWrapper>" + "</ns1:getOrderHistoryResponse>");
 
     mockWebServiceServer.expect(payload(requestPayload)).andRespond(withPayload(responsePayload));
 
