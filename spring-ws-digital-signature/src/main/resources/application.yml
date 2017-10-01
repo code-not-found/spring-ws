@@ -1,0 +1,19 @@
+client:
+  default-uri: http://localhost:9090/codenotfound/ws/ticketagent
+  signature:
+    key-store: classpath:jks/client-keystore.jks
+    key-store-password: client-keystore-p455w0rd
+    key-alias: client-keypair
+    key-password: client-key-p455w0rd
+    trust-store: classpath:jks/client-truststore.jks
+    trust-store-password: client-truststore-p455w0rd
+
+server:
+  port: 9090
+  signature:
+    key-store: classpath:jks/server-keystore.jks
+    key-store-password: server-keystore-p455w0rd
+    key-alias: server-keypair
+    key-password: server-key-p455w0rd
+    trust-store: classpath:jks/server-truststore.jks
+    trust-store-password: server-truststore-p455w0rd
