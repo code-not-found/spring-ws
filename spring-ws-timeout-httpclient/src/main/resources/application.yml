@@ -1,0 +1,5 @@
+client:
+  timeout: 2000
+
+server:
+  port: 9090
