@@ -22,6 +22,8 @@ env:
 - PROJECT_DIR=spring-ws-soapaction-header
 - PROJECT_DIR=spring-ws-soap-header
 - PROJECT_DIR=spring-ws-ticketagent
+- PROJECT_DIR=spring-ws-timeout
+- PROJECT_DIR=spring-ws-timeout-httpclient
 - PROJECT_DIR=spring-ws-tolerant-reader
 
 script:
