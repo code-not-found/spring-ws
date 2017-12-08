@@ -16,9 +16,7 @@ public class HelloWorldEndpoint {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(HelloWorldEndpoint.class);
 
-  private static final String NAMESPACE_URI = "http://codenotfound.com/types/helloworld";
-
-  @PayloadRoot(namespace = NAMESPACE_URI, localPart = "person")
+  @PayloadRoot(namespace = "http://codenotfound.com/types/helloworld", localPart = "person")
   @ResponsePayload
   public Greeting sayHello(@RequestPayload Person request) {
     LOGGER.info("Endpoint received person[firstName={},lastName={}]", request.getFirstName(),
