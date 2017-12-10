@@ -10,7 +10,7 @@
 
   <name>spring-ws-basic-authentication</name>
   <description>Spring WS - Basic Authentication Example</description>
-  <url>https://www.codenotfound.com/spring-ws-basic-authentication-example.html</url>
+  <url>https://www.codenotfound.com/spring-ws/</url>
 
   <parent>
     <groupId>org.springframework.boot</groupId>

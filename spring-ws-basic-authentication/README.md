@@ -2,6 +2,6 @@
 
 [![Quality Gate](https://sonarcloud.io/api/badges/gate?key=com.codenotfound:spring-ws-basic-authentication)](https://sonarcloud.io/dashboard/index/com.codenotfound:spring-ws-basic-authentication)
 
-A detailed step-by-step tutorial on how to configure basic authentication using Spring-WS and Spring Boot.
+A sample project on how to configure basic authentication using Spring-WS and Spring Boot without using the Apache HttpClient.
 
-[https://www.codenotfound.com/spring-ws-basic-authentication-example.html](https://www.codenotfound.com/spring-ws-basic-authentication-example.html)
+[https://www.codenotfound.com/spring-ws/](https://www.codenotfound.com/spring-ws/)

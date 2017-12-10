@@ -10,7 +10,7 @@
 
   <name>spring-ws-https</name>
   <description>Spring WS - HTTPS Client Server Example</description>
-  <url>https://www.codenotfound.com/spring-ws-https-client-server-example.html</url>
+  <url>https://www.codenotfound.com/spring-ws/</url>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
