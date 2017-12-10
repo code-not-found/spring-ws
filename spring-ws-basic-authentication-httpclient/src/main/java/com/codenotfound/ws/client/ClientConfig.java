@@ -34,7 +34,7 @@ public class ClientConfig {
     webServiceTemplate.setMarshaller(jaxb2Marshaller());
     webServiceTemplate.setUnmarshaller(jaxb2Marshaller());
     webServiceTemplate.setDefaultUri(defaultUri);
-    // set the Apache HttpClient which provides support for basic authentication
+    // set a HttpComponentsMessageSender which provides support for basic authentication
     webServiceTemplate.setMessageSender(httpComponentsMessageSender());
 
     return webServiceTemplate;
