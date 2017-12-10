@@ -1,10 +1,6 @@
 package com.codenotfound.ws.client;
 
 import java.io.IOException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -52,8 +48,7 @@ public class ClientConfig {
   }
 
   @Bean
-  public WebServiceTemplate webServiceTemplate() throws KeyManagementException,
-      NoSuchAlgorithmException, KeyStoreException, CertificateException, IOException {
+  public WebServiceTemplate webServiceTemplate() throws Exception {
     WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
     webServiceTemplate.setMarshaller(jaxb2Marshaller());
     webServiceTemplate.setUnmarshaller(jaxb2Marshaller());
@@ -64,16 +59,14 @@ public class ClientConfig {
   }
 
   @Bean
-  public HttpComponentsMessageSender httpComponentsMessageSender() throws KeyManagementException,
-      NoSuchAlgorithmException, KeyStoreException, CertificateException, IOException {
+  public HttpComponentsMessageSender httpComponentsMessageSender() throws Exception {
     HttpComponentsMessageSender httpComponentsMessageSender = new HttpComponentsMessageSender();
     httpComponentsMessageSender.setHttpClient(httpClient());
 
     return httpComponentsMessageSender;
   }
 
-  public HttpClient httpClient() throws KeyManagementException, NoSuchAlgorithmException,
-      KeyStoreException, CertificateException, IOException {
+  public HttpClient httpClient() throws Exception {
     return HttpClientBuilder.create().setDefaultRequestConfig(requestConfig())
         .setSSLSocketFactory(sslConnectionSocketFactory())
         .addInterceptorFirst(new ContentLengthHeaderRemover()).build();
@@ -84,8 +77,7 @@ public class ClientConfig {
         .setSocketTimeout(timeout).build();
   }
 
-  public SSLConnectionSocketFactory sslConnectionSocketFactory() throws KeyManagementException,
-      NoSuchAlgorithmException, KeyStoreException, CertificateException, IOException {
+  public SSLConnectionSocketFactory sslConnectionSocketFactory() throws Exception {
     // allows the client to skip host name verification as otherwise following error is thrown:
     // java.security.cert.CertificateException: No name matching localhost found
     return new SSLConnectionSocketFactory(sslContext(), new HostnameVerifier() {
@@ -96,8 +88,7 @@ public class ClientConfig {
     });
   }
 
-  public SSLContext sslContext() throws KeyManagementException, NoSuchAlgorithmException,
-      KeyStoreException, CertificateException, IOException {
+  public SSLContext sslContext() throws Exception {
     return SSLContextBuilder.create()
         .loadTrustMaterial(trustStore.getFile(), trustStorePassword.toCharArray())
         .setProtocol("TLS").build();
