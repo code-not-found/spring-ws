@@ -1,23 +1,30 @@
 package com.codenotfound.ws.client;
 
-import org.apache.http.auth.UsernamePasswordCredentials;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.ws.client.core.WebServiceTemplate;
-import org.springframework.ws.transport.http.HttpComponentsMessageSender;
-
-
 
 @Configuration
 public class ClientConfig {
 
+  @Value("${client.default-uri}")
+  private String defaultUri;
+
   @Value("${client.user.name}")
-  private String name;
+  private String userName;
 
   @Value("${client.user.password}")
-  private String password;
+  private String userPassword;
+
+  public String getUserName() {
+    return userName;
+  }
+
+  public String getUserPassword() {
+    return userPassword;
+  }
 
   @Bean
   Jaxb2Marshaller jaxb2Marshaller() {
@@ -32,25 +39,8 @@ public class ClientConfig {
     WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
     webServiceTemplate.setMarshaller(jaxb2Marshaller());
     webServiceTemplate.setUnmarshaller(jaxb2Marshaller());
-    webServiceTemplate.setDefaultUri("http://localhost:9090/codenotfound/ws/ticketagent");
-    // set the Apache HttpClient which provides support for basic authentication
-    webServiceTemplate.setMessageSender(httpComponentsMessageSender());
+    webServiceTemplate.setDefaultUri(defaultUri);
 
     return webServiceTemplate;
-  }
-
-  @Bean
-  public HttpComponentsMessageSender httpComponentsMessageSender() {
-    HttpComponentsMessageSender httpComponentsMessageSender = new HttpComponentsMessageSender();
-    // set the basic authorization credentials
-    httpComponentsMessageSender.setCredentials(usernamePasswordCredentials());
-
-    return httpComponentsMessageSender;
-  }
-
-  @Bean
-  public UsernamePasswordCredentials usernamePasswordCredentials() {
-    // pass the user name and password to be used
-    return new UsernamePasswordCredentials(name, password);
   }
 }
