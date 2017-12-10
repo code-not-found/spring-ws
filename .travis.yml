@@ -20,6 +20,7 @@ env:
 - PROJECT_DIR=spring-ws-https-httpclient
 - PROJECT_DIR=spring-ws-https
 - PROJECT_DIR=spring-ws-log-http-headers
+- PROJECT_DIR=spring-ws-mutual-authentication-httpclient
 - PROJECT_DIR=spring-ws-mutual-authentication
 - PROJECT_DIR=spring-ws-soapaction-header
 - PROJECT_DIR=spring-ws-soap-header
