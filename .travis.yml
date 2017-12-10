@@ -17,6 +17,7 @@ env:
 - PROJECT_DIR=spring-ws-digital-signature
 - PROJECT_DIR=spring-ws-encryption
 - PROJECT_DIR=spring-ws-helloworld
+- PROJECT_DIR=spring-ws-https-httpclient
 - PROJECT_DIR=spring-ws-https
 - PROJECT_DIR=spring-ws-log-http-headers
 - PROJECT_DIR=spring-ws-mutual-authentication
