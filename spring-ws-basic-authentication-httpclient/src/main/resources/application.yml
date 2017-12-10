@@ -1,0 +1,13 @@
+client:
+  default-uri: http://localhost:9090/codenotfound/ws/helloworld
+  user:
+    name: codenotfound
+    password: p455w0rd
+
+security:
+  user:
+    name: codenotfound
+    password: p455w0rd
+
+server:
+  port: 9090
