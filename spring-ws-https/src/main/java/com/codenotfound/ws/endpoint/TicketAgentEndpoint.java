@@ -19,7 +19,6 @@ public class TicketAgentEndpoint {
   @ResponsePayload
   public JAXBElement<TFlightsResponse> listFlights(
       @RequestPayload JAXBElement<TListFlights> request) {
-
     ObjectFactory factory = new ObjectFactory();
     TFlightsResponse tFlightsResponse = factory.createTFlightsResponse();
     tFlightsResponse.getFlightNumber().add(BigInteger.valueOf(101));
