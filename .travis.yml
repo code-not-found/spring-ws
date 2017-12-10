@@ -12,6 +12,7 @@ addons:
       secure: $SONAR_TOKEN
 
 env:
+- PROJECT_DIR=spring-ws-basic-authentication-httpclient
 - PROJECT_DIR=spring-ws-basic-authentication
 - PROJECT_DIR=spring-ws-digital-signature
 - PROJECT_DIR=spring-ws-encryption
