@@ -3,7 +3,6 @@ client:
   ssl:
     trust-store: classpath:jks/client-truststore.jks
     trust-store-password: client-truststore-p455w0rd
-  timeout: 2000
 
 server:
   port: 9443
