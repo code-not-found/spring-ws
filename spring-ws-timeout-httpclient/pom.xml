@@ -9,8 +9,8 @@
   <packaging>jar</packaging>
 
   <name>spring-ws-timeout-httpclient</name>
-  <description>Spring WS - Timeout Example</description>
-  <url>https://www.codenotfound.com/spring-ws-timeout-example.html</url>
+  <description>Spring WS - Client Timeout Example</description>
+  <url>https://www.codenotfound.com/spring-ws-client-timeout-example.html</url>
 
   <parent>
     <groupId>org.springframework.boot</groupId>

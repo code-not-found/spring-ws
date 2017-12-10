@@ -9,6 +9,9 @@ import org.springframework.ws.client.core.WebServiceTemplate;
 @Configuration
 public class ClientConfig {
 
+  @Value("${client.default-uri}")
+  private String defaultUri;
+
   @Value("${client.timeout}")
   private int timeout;
 
@@ -25,7 +28,7 @@ public class ClientConfig {
     WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
     webServiceTemplate.setMarshaller(jaxb2Marshaller());
     webServiceTemplate.setUnmarshaller(jaxb2Marshaller());
-    webServiceTemplate.setDefaultUri("http://localhost:9090/codenotfound/ws/ticketagent");
+    webServiceTemplate.setDefaultUri(defaultUri);
     webServiceTemplate.setMessageSender(httpUrlConnectionMessageSenderTimeout());
 
     return webServiceTemplate;
