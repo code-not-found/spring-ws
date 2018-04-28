@@ -14,6 +14,7 @@ addons:
 env:
 - PROJECT_DIR=spring-ws-basic-authentication-httpclient
 - PROJECT_DIR=spring-ws-basic-authentication
+- PROJECT_DIR=spring-ws-client-timeout
 - PROJECT_DIR=spring-ws-digital-signature
 - PROJECT_DIR=spring-ws-encryption
 - PROJECT_DIR=spring-ws-helloworld
@@ -25,7 +26,6 @@ env:
 - PROJECT_DIR=spring-ws-soapaction-header
 - PROJECT_DIR=spring-ws-soap-header
 - PROJECT_DIR=spring-ws-ticketagent
-- PROJECT_DIR=spring-ws-timeout
 - PROJECT_DIR=spring-ws-timeout-httpclient
 - PROJECT_DIR=spring-ws-tolerant-reader
 
