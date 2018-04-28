@@ -1,6 +1,0 @@
-client:
-  default-uri: http://localhost:9090/codenotfound/ws/helloworld
-  timeout: 2000
-
-server:
-  port: 9090

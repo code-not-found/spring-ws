@@ -1,6 +1,5 @@
 package com.codenotfound.ws.client;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
@@ -8,12 +7,6 @@ import org.springframework.ws.client.core.WebServiceTemplate;
 
 @Configuration
 public class ClientConfig {
-
-  @Value("${client.default-uri}")
-  private String defaultUri;
-
-  @Value("${client.timeout}")
-  private int timeout;
 
   @Bean
   Jaxb2Marshaller jaxb2Marshaller() {
@@ -28,8 +21,10 @@ public class ClientConfig {
     WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
     webServiceTemplate.setMarshaller(jaxb2Marshaller());
     webServiceTemplate.setUnmarshaller(jaxb2Marshaller());
-    webServiceTemplate.setDefaultUri(defaultUri);
-    webServiceTemplate.setMessageSender(httpUrlConnectionMessageSenderTimeout());
+    webServiceTemplate.setDefaultUri(
+        "http://localhost:8080/codenotfound/ws/helloworld");
+    webServiceTemplate
+        .setMessageSender(httpUrlConnectionMessageSenderTimeout());
 
     return webServiceTemplate;
   }
@@ -38,7 +33,7 @@ public class ClientConfig {
   public HttpUrlConnectionMessageSenderTimeout httpUrlConnectionMessageSenderTimeout() {
     HttpUrlConnectionMessageSenderTimeout httpUrlConnectionMessageSenderTimeout =
         new HttpUrlConnectionMessageSenderTimeout();
-    httpUrlConnectionMessageSenderTimeout.setTimeout(timeout);
+    httpUrlConnectionMessageSenderTimeout.setTimeout(2000);
 
     return httpUrlConnectionMessageSenderTimeout;
   }

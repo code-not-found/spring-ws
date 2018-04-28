@@ -1,9 +1,7 @@
 package com.codenotfound.ws;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.math.BigInteger;
-import java.util.List;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,8 +21,12 @@ public class SpringWsApplicationTests {
 
   @Test
   public void testListFlights() {
-    List<BigInteger> flights = ticketAgentClient.listFlights();
-
-    assertThat(flights.size()).isEqualTo(0);
+    try {
+      ticketAgentClient.listFlights();
+      fail("Timeout exception not thrown");
+    } catch (Exception expectedException) {
+      assertThat(expectedException.getMessage())
+          .contains("Read timed out");
+    }
   }
 }
