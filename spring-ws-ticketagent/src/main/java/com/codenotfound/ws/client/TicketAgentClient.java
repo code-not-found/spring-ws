@@ -20,14 +20,15 @@ public class TicketAgentClient {
 
   @SuppressWarnings("unchecked")
   public List<BigInteger> listFlights() {
-
     ObjectFactory factory = new ObjectFactory();
     TListFlights tListFlights = factory.createTListFlights();
 
-    JAXBElement<TListFlights> request = factory.createListFlightsRequest(tListFlights);
+    JAXBElement<TListFlights> request =
+        factory.createListFlightsRequest(tListFlights);
 
     JAXBElement<TFlightsResponse> response =
-        (JAXBElement<TFlightsResponse>) webServiceTemplate.marshalSendAndReceive(request);
+        (JAXBElement<TFlightsResponse>) webServiceTemplate
+            .marshalSendAndReceive(request);
 
     return response.getValue().getFlightNumber();
   }

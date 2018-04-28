@@ -16,8 +16,8 @@ import org.springframework.ws.wsdl.wsdl11.Wsdl11Definition;
 public class WebServiceConfig extends WsConfigurerAdapter {
 
   @Bean
-  public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {
-
+  public ServletRegistrationBean messageDispatcherServlet(
+      ApplicationContext applicationContext) {
     MessageDispatcherServlet servlet = new MessageDispatcherServlet();
     servlet.setApplicationContext(applicationContext);
 
@@ -26,8 +26,10 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 
   @Bean(name = "ticketagent")
   public Wsdl11Definition defaultWsdl11Definition() {
-    SimpleWsdl11Definition wsdl11Definition = new SimpleWsdl11Definition();
-    wsdl11Definition.setWsdl(new ClassPathResource("/wsdl/ticketagent.wsdl"));
+    SimpleWsdl11Definition wsdl11Definition =
+        new SimpleWsdl11Definition();
+    wsdl11Definition
+        .setWsdl(new ClassPathResource("/wsdl/ticketagent.wsdl"));
 
     return wsdl11Definition;
   }
