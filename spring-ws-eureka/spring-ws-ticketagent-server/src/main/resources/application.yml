@@ -1,0 +1,21 @@
+info:
+  app:
+    name: Spring WS TicketAgent Server
+    version: 0.0.1-SNAPSHOT
+
+server:
+  port: 9090
+
+spring:
+  application:
+    name: ticketagent-service
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+  instance:
+    status-page-url-path: /actuator/info
+    health-check-url-path: /actuator/health
+    preferIpAddress: true
