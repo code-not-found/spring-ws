@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
-<wsdl:definitions name="HelloWorld"
-  targetNamespace="http://codenotfound.com/services/helloworld"
-  xmlns:tns="http://codenotfound.com/services/helloworld" xmlns:types="http://codenotfound.com/types/helloworld"
-  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions name="HelloWorld" targetNamespace="http://codenotfound.com/services/helloworld" xmlns:tns="http://codenotfound.com/services/helloworld"
+  xmlns:types="http://codenotfound.com/types/helloworld" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
 
   <wsdl:types>
-    <xsd:schema targetNamespace="http://codenotfound.com/types/helloworld"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    <xsd:schema targetNamespace="http://codenotfound.com/types/helloworld" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
       attributeFormDefault="unqualified" version="1.0">
 
       <xsd:element name="person">
@@ -44,11 +41,9 @@
   </wsdl:portType>
 
   <wsdl:binding name="HelloWorld_SoapBinding" type="tns:HelloWorld_PortType">
-    <soap:binding style="document"
-      transport="http://schemas.xmlsoap.org/soap/http" />
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="sayHello">
-      <soap:operation
-        soapAction="http://codenotfound.com/services/helloworld/sayHello" />
+      <soap:operation soapAction="http://codenotfound.com/services/helloworld/sayHello" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -61,7 +56,7 @@
   <wsdl:service name="HelloWorld_Service">
     <wsdl:documentation>Hello World service</wsdl:documentation>
     <wsdl:port name="HelloWorld_Port" binding="tns:HelloWorld_SoapBinding">
-      <soap:address location="http://localhost:9090/codenotfound/ws/helloworld" />
+      <soap:address location="http://localhost:8080/codenotfound/ws/helloworld" />
     </wsdl:port>
   </wsdl:service>
 
